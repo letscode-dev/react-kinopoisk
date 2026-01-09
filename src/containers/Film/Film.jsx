@@ -12,6 +12,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 
 import { get as apiGetFilms } from '../../api/actions/films'
 import { addToFavorite, removeFromFavorite } from '../../store/favoritesSlice'
+import { checkFilmPoster } from '../../utils/films/films'
 
 import styles from './styles.module.css'
 
@@ -122,13 +123,13 @@ const Film = () => {
       <h1 className="h1">{data.nameRu} ({data.year})</h1>
       <div className={styles.wrapper}>
         <img
-          src={data.posterUrl} 
+          src={checkFilmPoster(data.posterUrl)} 
           alt="Poster" 
           className={styles.img}
         />
         <div className={styles.content}>
           <h3 className={styles.title}>Описание</h3>
-          <div>{data.description}</div>
+          <div>{data.description ? data.description : 'Нет данных'}</div>
           
           <div className={styles.ratingWrapper}>
             <h3 className={styles.title}>Рейтинг</h3>

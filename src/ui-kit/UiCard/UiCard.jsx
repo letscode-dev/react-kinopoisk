@@ -1,3 +1,5 @@
+import { checkFilmPoster } from '../../utils/films/films'
+
 import styles from './styles.module.css'
 
 const UiCard = (props) => {
@@ -6,7 +8,7 @@ const UiCard = (props) => {
   return (
     <div className={styles.item} onClick={() => onClick(data.id)}>
       <img
-        src={data.poster} 
+        src={checkFilmPoster(data.poster)} 
         alt="Poster" 
         className={styles.img}
       />

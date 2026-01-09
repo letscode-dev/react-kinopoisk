@@ -1,0 +1,28 @@
+.wrapper {
+  background-color: #242424;
+}
+.container {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  height: 75px;
+}
+
+.link {
+  font-size: 14px;
+  padding: 8px 15px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: #fff;
+  line-height: 1;
+}
+.linkActive {
+  border-radius: 15px;
+  background-color: #fff;
+  color: #000;
+}
+
+.icon {
+  color: #c4e1ff;
+  font-size: 30px;
+}

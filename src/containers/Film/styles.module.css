@@ -1,0 +1,43 @@
+.wrapper {
+  background-color: #e4e4e4;
+  border-radius: 8px;
+  display: flex;
+  box-shadow: 0 2px 24px rgba(198, 209, 219, 0.5);
+}
+.img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  object-position: center center;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background-color: #fff;
+}
+.content {
+  padding: 30px;
+}
+.header {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.buttonsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: var(--spacing-medium);
+}
+.button {
+  background-color: #fff;
+  text-transform: none;
+  color: #000;
+}
+
+.ratingWrapper {
+  margin-top: var(--spacing-medium);
+}
+.title {
+  margin: 0;
+  margin-bottom: 6px;
+}

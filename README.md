@@ -1,9 +1,15 @@
 # Приложение для просмотра фильмов с Kinopoisk
 
 ## Установка и настройка приложения
+
 1. Склонировать репозиторий по HTTPS
 2. Установить зависимости для проекта через `npm i`
 
 ## .env-файл
+
 - Скопировать файл `.env.example` и переменовать его в `.env`
 - Для ключа `VITE_API_KEY` добавить значение из "Профиля" [Kinopoisk Api Unofficial](https://kinopoiskapiunofficial.tech/)
+
+## TODO
+
+- Обрабатываеть фильмы без постера: https://kinopoiskapiunofficial.tech/images/posters/kp/no-poster.png

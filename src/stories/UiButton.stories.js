@@ -2,6 +2,8 @@ import { fn } from "storybook/test"
 
 import UiButton from '../ui-kit/UiButton'
 
+import '../styles/styles.css'
+
 const meta = {
 	// Название категории и раздела
   title: "Ui-Kit/UiButton",
@@ -26,14 +28,6 @@ const meta = {
     children: "Button",
     disabled: false
   },
-  
-  // Добавление раздела "Docs"
-  tags: ["autodocs"],
-
-	// Параметры: выравнивает по центру (в данном случае)
-  parameters: {
-    layout: 'centered',
-  },
 }
 
 export default meta
@@ -43,4 +37,3 @@ export const Basic = {
     variant: "contained",
   },
 }
-

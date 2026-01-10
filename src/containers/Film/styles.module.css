@@ -1,6 +1,6 @@
 .wrapper {
   background-color: #e4e4e4;
-  border-radius: 12px;
+  border-radius: var(--border-radius-medium);
   display: flex;
   box-shadow: 0 2px 24px #c6d1db80;
 }
@@ -10,7 +10,7 @@
   object-fit: cover;
   object-position: center center;
   flex-shrink: 0;
-  border-radius: 12px;
+  border-radius: var(--border-radius-medium);
   background-color: #fff;
   box-shadow: 0 2px 24px #c6d1db80;
 }

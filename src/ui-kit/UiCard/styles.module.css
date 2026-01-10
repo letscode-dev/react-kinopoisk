@@ -3,7 +3,7 @@
   width: 220px;
   height: 320px;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: var(--border-radius-medium);
   box-shadow: 0 6px 18px #0f172a14;
   background: linear-gradient(180deg, #fff, #fafafa);
   cursor: pointer;

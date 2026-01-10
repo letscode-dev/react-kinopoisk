@@ -1,8 +1,8 @@
 .wrapper {
   background-color: #e4e4e4;
-  border-radius: 8px;
+  border-radius: 12px;
   display: flex;
-  box-shadow: 0 2px 24px rgba(198, 209, 219, 0.5);
+  box-shadow: 0 2px 24px #c6d1db80;
 }
 .img {
   width: 300px;
@@ -10,8 +10,9 @@
   object-fit: cover;
   object-position: center center;
   flex-shrink: 0;
-  border-radius: 8px;
+  border-radius: 12px;
   background-color: #fff;
+  box-shadow: 0 2px 24px #c6d1db80;
 }
 .content {
   padding: 30px;

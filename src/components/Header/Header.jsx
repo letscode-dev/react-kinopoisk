@@ -18,12 +18,24 @@ const Header = () => {
     <div className={styles.wrapper}>
       <div className={cn('container', styles.container)}>
         <GraphicEqSharpIcon className={styles.icon} />
-        <NavLink to="/" className={setActiveClass}>Домашняя</NavLink>
-        <NavLink to="/films" className={setActiveClass}>Список фильмов</NavLink>
-        <NavLink to="/search" className={setActiveClass}>Поиск фильма</NavLink>
+        <NavLink to="/" className={setActiveClass}>
+          Домашняя
+        </NavLink>
+        <NavLink to="/films" className={setActiveClass}>
+          Список фильмов
+        </NavLink>
+        <NavLink to="/search" className={setActiveClass}>
+          Поиск фильма
+        </NavLink>
 
-        <Badge badgeContent={favorites.length} color="primary" overlap="circular">
-          <NavLink to="/favorites" className={setActiveClass}>Избранное</NavLink>
+        <Badge
+          badgeContent={favorites.length}
+          color="primary"
+          overlap="circular"
+        >
+          <NavLink to="/favorites" className={setActiveClass}>
+            Избранное
+          </NavLink>
         </Badge>
       </div>
     </div>

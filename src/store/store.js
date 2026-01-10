@@ -6,11 +6,11 @@ const persistedFavorites = getLocalStorage('store')
 
 export const store = configureStore({
   reducer: {
-    favorites: favoritesReducer
+    favorites: favoritesReducer,
   },
   preloadedState: {
-    favorites: Array.isArray(persistedFavorites) ? persistedFavorites : []
-  }
+    favorites: Array.isArray(persistedFavorites) ? persistedFavorites : [],
+  },
 })
 
 store.subscribe(() => {

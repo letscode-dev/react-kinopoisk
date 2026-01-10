@@ -25,7 +25,7 @@ const ButtonsElement = (props) => {
   const buttonProps = {
     variant: 'outlined',
     size: 'small',
-    className: styles.button
+    className: styles.button,
   }
 
   const onClose = () => {
@@ -34,12 +34,14 @@ const ButtonsElement = (props) => {
   }
 
   const onFavoritesAddClick = () => {
-    dispatch(addToFavorite({
-      id: data.kinopoiskId,
-      name: data.nameRu,
-      poster: data.posterUrl,
-      year: data.year
-    }))
+    dispatch(
+      addToFavorite({
+        id: data.kinopoiskId,
+        name: data.nameRu,
+        poster: data.posterUrl,
+        year: data.year,
+      }),
+    )
   }
 
   const onFavoritesRemoveClick = () => {
@@ -50,7 +52,7 @@ const ButtonsElement = (props) => {
     <div className={styles.buttonsWrapper}>
       <Button
         onClick={onClose}
-        startIcon={<ArrowBackIcon sx={{color: '#0004ff'}} />}
+        startIcon={<ArrowBackIcon sx={{ color: '#0004ff' }} />}
         {...buttonProps}
       >
         Назад
@@ -59,7 +61,7 @@ const ButtonsElement = (props) => {
       {isFavorites ? (
         <Button
           onClick={onFavoritesRemoveClick}
-          startIcon={<RemoveCircleIcon sx={{color: '#d84848'}} />}
+          startIcon={<RemoveCircleIcon sx={{ color: '#d84848' }} />}
           {...buttonProps}
         >
           Удалить из избранного
@@ -67,7 +69,7 @@ const ButtonsElement = (props) => {
       ) : (
         <Button
           onClick={onFavoritesAddClick}
-          startIcon={<CheckCircleIcon sx={{color: '#07b50a'}} />}
+          startIcon={<CheckCircleIcon sx={{ color: '#07b50a' }} />}
           {...buttonProps}
         >
           Добавить в избранное
@@ -75,7 +77,7 @@ const ButtonsElement = (props) => {
       )}
 
       <Button
-        startIcon={<OpenInNewIcon sx={{color: '#0004ff'}} />}
+        startIcon={<OpenInNewIcon sx={{ color: '#0004ff' }} />}
         href={data.webUrl}
         target="_blank"
         {...buttonProps}
@@ -93,22 +95,22 @@ const Film = () => {
   const params = useParams()
 
   const favorites = useSelector((state) => state.favorites)
-  
+
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       const data = await apiGetFilms(params.id)
       setData(data)
     })()
   }, [params.id])
 
   useEffect(() => {
-    const favoritesFilm = favorites.filter(el => el.id === data.kinopoiskId)
+    const favoritesFilm = favorites.filter((el) => el.id === data.kinopoiskId)
     setIsFavorites(!!favoritesFilm.length)
   }, [data.kinopoiskId, favorites])
 
   if (!data && data.length == 0) {
     return (
-      <div className='section'>
+      <div className="section">
         <div>Нет данные о фильме</div>
       </div>
     )
@@ -119,24 +121,35 @@ const Film = () => {
   }
 
   return (
-    <div className='section'>
-      <h1 className="h1">{data.nameRu} ({data.year})</h1>
+    <div className="section">
+      <h1 className="h1">
+        {data.nameRu} ({data.year})
+      </h1>
       <div className={styles.wrapper}>
         <img
-          src={checkFilmPoster(data.posterUrl)} 
-          alt="Poster" 
+          src={checkFilmPoster(data.posterUrl)}
+          alt="Poster"
           className={styles.img}
         />
         <div className={styles.content}>
           <h3 className={styles.title}>Описание</h3>
           <div>{data.description ? data.description : 'Нет данных'}</div>
-          
+
           <div className={styles.ratingWrapper}>
             <h3 className={styles.title}>Рейтинг</h3>
-            <Rating defaultValue={data.ratingKinopoisk} precision={0.5} max={10} readOnly />
+            <Rating
+              defaultValue={data.ratingKinopoisk}
+              precision={0.5}
+              max={10}
+              readOnly
+            />
           </div>
 
-          <ButtonsElement data={data} setData={setData} isFavorites={isFavorites} />
+          <ButtonsElement
+            data={data}
+            setData={setData}
+            isFavorites={isFavorites}
+          />
         </div>
       </div>
     </div>

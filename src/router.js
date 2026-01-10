@@ -10,7 +10,7 @@ import Favorites from './containers/Favorites'
 export const router = createBrowserRouter(
   [
     {
-      path: "/",
+      path: '/',
       Component: App,
       children: [
         {
@@ -18,19 +18,19 @@ export const router = createBrowserRouter(
           Component: Home,
         },
         {
-          path: "films",
+          path: 'films',
           Component: FilmsList,
         },
         {
-          path: "search",
+          path: 'search',
           Component: SearchFilms,
         },
         {
-          path: "film/:id",
+          path: 'film/:id',
           Component: Film,
         },
         {
-          path: "favorites",
+          path: 'favorites',
           Component: Favorites,
         },
       ],
@@ -38,5 +38,5 @@ export const router = createBrowserRouter(
   ],
   {
     basename: '/react-kinopoisk',
-  }
+  },
 )

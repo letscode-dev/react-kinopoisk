@@ -18,34 +18,35 @@ const FilmsList = () => {
   const [data, setData] = useState([])
 
   const navigate = useNavigate()
-  
+
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       const data = await apiGetListFilms(params)
       data && setData(data)
     })()
   }, [])
 
   const handleClick = async (id) => {
-    navigate('/film/'+id)
+    navigate('/film/' + id)
   }
 
   return (
-    <div className='section'>
+    <div className="section">
       <h1 className="h1">Список новых фильмов</h1>
       <div className={styles.wrapper}>
-        {data.length !== 0 && data.map(item => (
-          <UiCard
-            key={item.kinopoiskId}
-            data={{
-              id: item.kinopoiskId,
-              poster: item.posterUrlPreview,
-              name: item.nameRu,
-              year: item.year
-            }}
-            onClick={handleClick}
-          />
-        ))}
+        {data.length !== 0 &&
+          data.map((item) => (
+            <UiCard
+              key={item.kinopoiskId}
+              data={{
+                id: item.kinopoiskId,
+                poster: item.posterUrlPreview,
+                name: item.nameRu,
+                year: item.year,
+              }}
+              onClick={handleClick}
+            />
+          ))}
       </div>
     </div>
   )

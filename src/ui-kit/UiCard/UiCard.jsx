@@ -8,8 +8,8 @@ const UiCard = (props) => {
   return (
     <div className={styles.item} onClick={() => onClick(data.id)}>
       <img
-        src={checkFilmPoster(data.poster)} 
-        alt="Poster" 
+        src={checkFilmPoster(data.poster)}
+        alt="Poster"
         className={styles.img}
       />
       <div className={styles.name}>{`${data.name} (${data.year})`}</div>

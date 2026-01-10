@@ -1,0 +1,9 @@
+node_modules
+dist
+build
+coverage
+.vite
+.storybook-static
+*.min.js
+package-lock.json
+

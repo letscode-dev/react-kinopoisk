@@ -4,7 +4,7 @@
   border-radius: 4px;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 2px 24px rgba(168,175,196,.5);
+  box-shadow: 0 2px 24px rgba(168, 175, 196, 0.5);
 }
 .img {
   display: block;

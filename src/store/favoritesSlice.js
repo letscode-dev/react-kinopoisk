@@ -10,10 +10,10 @@ export const favoritesSlice = createSlice({
       state.push(action.payload)
     },
     removeFromFavorite: (state, action) => {
-      const data = state.filter(el => el.id !== action.payload)
+      const data = state.filter((el) => el.id !== action.payload)
       return [...data]
     },
-  }
+  },
 })
 
 export const { addToFavorite, removeFromFavorite } = favoritesSlice.actions

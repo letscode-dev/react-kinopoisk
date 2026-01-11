@@ -1,34 +1,34 @@
-## Kinopoisk App
+# Kinopoisk App
 
-### Данные
+## Данные
 
-#### Описание
+### Описание
 
 Приложение для просмотра фильмов с Kinopoisk
 
-#### Ссылки
+### Ссылки
 
 - https://letscode-dev.github.io/react-kinopoisk/ - Деплой проекта
 - https://github.com/letscode-dev/react-kinopoisk/tree/main - Репозиторий
 
 ---
 
-### Установка и настройка приложения
+## Установка и настройка приложения
 
-#### Клонирование и установка
+### Клонирование и установка
 
 1. Склонировать репозиторий по HTTPS
 2. Установить зависимости для проекта через `npm i`
 3. Создать .env-файл
 
-#### .env-файл
+### .env-файл
 
 - Скопировать файл `.env.example` и переменовать его в `.env`
 - Для ключа `VITE_API_KEY` добавить значение из "Профиля" [Kinopoisk Api Unofficial](https://kinopoiskapiunofficial.tech/)
 
 ---
 
-### Команды
+## Команды
 
 ```bash
 npm run dev             # Запуск приложения в dev-режиме на localhost

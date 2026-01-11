@@ -1,8 +1,15 @@
 # Kinopoisk App
 
-## Описание
+## Данные
+
+### Описание
 
 Приложение для просмотра фильмов с Kinopoisk
+
+### Ссылки
+
+- https://letscode-dev.github.io/react-kinopoisk/ - Деплой проекта
+- https://github.com/letscode-dev/react-kinopoisk/tree/main - Репозиторий
 
 ## Установка и настройка приложения
 
@@ -35,8 +42,3 @@ npm run gh-pages        # Git push из директории "dist" в ветк�
 npm run commit          # Git add, commit и push в ветку "main" на GitHub
 npm run deploy          # Сборка приложения и push в ветку "gh-pages"
 ```
-
-## Ссылки
-
-- https://letscode-dev.github.io/react-kinopoisk/ - Деплой проекта
-- https://github.com/letscode-dev/react-kinopoisk/tree/main - Репозиторий

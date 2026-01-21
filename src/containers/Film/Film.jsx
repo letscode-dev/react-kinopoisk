@@ -82,7 +82,7 @@ const ButtonsElement = (props) => {
         target="_blank"
         {...buttonProps}
       >
-        Ссылка на "Кинопоиск"
+        Ссылка на Кинопоиск
       </Button>
     </div>
   )

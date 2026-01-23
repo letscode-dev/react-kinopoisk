@@ -1,19 +1,6 @@
 import { createRoot } from 'react-dom/client'
-import { RouterProvider } from 'react-router/dom'
-import { Provider } from 'react-redux'
-import { StyledEngineProvider } from '@mui/material/styles'
+import App from './App'
 
-import { store } from './store/store'
-import { router } from './router'
+const root = createRoot(document.getElementById('root'))
 
-import '@fontsource/roboto/300.css'
-import './styles/styles.css'
-
-const root = document.getElementById('root')
-createRoot(root).render(
-  <StyledEngineProvider injectFirst>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
-  </StyledEngineProvider>,
-)
+root.render(<App />)

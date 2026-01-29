@@ -1,42 +1,51 @@
-// import styles from './styles.module.css'
-
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import Description from "../Description";
 
 const App = () => {
-  // const [title, setTitle] = useState('Default App')
-
-  // => ["Default App", Function]
-  // const state = useState('Default App12')
-  // const title = state[0]
-  // const setTitle = state[1]
-
-  const [title, setTitle] = useState('Default App')
-  // const [title1, setTitle1] = useState(null)
   const [counter, setCounter] = useState(0)
+  const [isDescriptionVisible, setIsDescriptionVisible] = useState(true)
 
-  const onClickTitle = () => {
-    setTitle('New App')
+  useEffect(() => {
+    // console.log('Монтирование 1')
+  }, []);
+
+  useEffect(() => {
+    // console.log('Монтирование 2')
+    // console.log('Обновление', counter)
+  }, [counter]);
+
+  const onResize = () => {
+    // console.log('resize')
   }
 
-  const onClickCounter = (isIncrement) => {
-    if (isIncrement) {
-      setCounter(prev => prev + 1)
-    } else {
-      setCounter(prev => prev - 1)
+  useEffect(() => {
+    window.addEventListener('resize', onResize, false)
+    return () => {
+      window.removeEventListener('resize', onResize)
+      // console.log('Размонтирование')
     }
+  }, []);
+
+  const onClick = () => {
+    setCounter((prev) => prev + 1)
+  }
+
+  if (isDescriptionVisible) {
+    //
+  } else {
+    //
   }
 
   return (
     <>
-      <h1>App</h1>
-      {title}
-      <hr />
       {counter}
-      <hr />
-      <button onClick={onClickTitle}>Вызов функции</button>
-      <hr />
-      <button onClick={() => onClickCounter(true)}>Increment</button>
-      <button onClick={() => onClickCounter(false)}>Decrement</button>
+      <button onClick={onClick}>Counter</button>
+      <button onClick={() => setCounter(0)}>Сброс</button>
+
+      <button onClick={() => setIsDescriptionVisible(false)}>Удалить Description</button>
+
+      {isDescriptionVisible ? <Description /> : null}
+      {/* {isDescriptionVisible ? 'Видимый' : 'Невидимый'} */}
     </>
   )
 }

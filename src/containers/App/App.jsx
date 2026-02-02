@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 // import Description from "../Samples/Description";
 // import ApiComponent from "../Samples/ApiComponent";
-import FilmsList from "../FilmsList/FilmsList";
+import Film from "../Film";
 
 const App = () => {
   return (
     <>
-      <FilmsList />
+      <Film />
     </>
   );
 };

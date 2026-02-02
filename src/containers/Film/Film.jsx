@@ -88,6 +88,7 @@ const ButtonsElement = (props) => {
   )
 }
 
+// FIXME: data должна быть {}
 const Film = () => {
   const [data, setData] = useState([])
   const [isFavorites, setIsFavorites] = useState(false)

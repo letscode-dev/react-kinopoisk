@@ -5,9 +5,9 @@
 //     .catch((error) => console.log("Error!!!", error.message));
 // };
 
-export const getApiResource = async (url) => {
+export const getApiResource = async (url, init = {}) => {
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, init);
 
     if (!response.ok) {
       console.error("Ошибка: ", response.status);

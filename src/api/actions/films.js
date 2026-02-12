@@ -1,4 +1,4 @@
-import { getApiResource } from "../utils";
+import { getApiResource, getQueryParams } from "../utils";
 import { API_HEADERS, API_BASE_URL } from "../constants";
 
 export const get = async (id) => {
@@ -13,3 +13,18 @@ export const get = async (id) => {
 
   return data;
 };
+
+export const getList = async (params = {}) => {
+  const queryParams = getQueryParams(params)
+
+  const init = {
+    method: "GET",
+    headers: API_HEADERS,
+  };
+  const data = await getApiResource(
+    `${API_BASE_URL}/api/v2.2/films?${queryParams}`,
+    init,
+  );
+
+  return data.items;
+}

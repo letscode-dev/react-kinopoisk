@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { get as apiGetFilm } from "../../api/actions/films";
+import { getList as apiGetListFilm } from "../../api/actions/films";
 
 import styles from "./styles.module.css";
 
@@ -10,6 +11,7 @@ const Film = () => {
 
   useEffect(() => {
     (async () => {
+      apiGetListFilm({})
       const response = await apiGetFilm(kinopoiskId);
       setData(response);
     })();

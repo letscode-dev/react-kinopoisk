@@ -28,3 +28,18 @@ export const getList = async (params = {}) => {
 
   return data.items;
 }
+
+export const search = async (params = {}) => {
+  const queryParams = getQueryParams(params)
+
+  const init = {
+    method: "GET",
+    headers: API_HEADERS,
+  };
+  const data = await getApiResource(
+    `${API_BASE_URL}/api/v2.1/films/search-by-keyword?${queryParams}`,
+    init,
+  );
+
+  return data.films;
+}

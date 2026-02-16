@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getList as apiGetListFilm } from "../../api/actions/films";
 
 import styles from "./styles.module.css";
+import { useNavigate } from "react-router";
 
 const params = {
   type: "FILM",
@@ -12,12 +13,18 @@ const params = {
 const FilmsList = () => {
   const [data, setData] = useState([]);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     (async () => {
       const response = await apiGetListFilm(params);
       setData(response);
     })();
   }, []);
+
+  const onClick = (id) => {
+    navigate("/film/" + id);
+  };
 
   return (
     <div>
@@ -28,6 +35,9 @@ const FilmsList = () => {
             <div key={item.kinopoiskId} className={styles.item}>
               <img className={styles.img} src={item.posterUrlPreview} alt="" />
               <div className={styles.name}>{item.nameRu}</div>
+              <button onClick={() => onClick(item.kinopoiskId)}>
+                Открыть фильм
+              </button>
             </div>
           ))}
       </div>

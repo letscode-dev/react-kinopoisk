@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 
 import App from "./containers/App";
 import FilmsList from "./containers/FilmsList";
+import Film from "./containers/Film";
 import SearchFilms from "./containers/SearchFilms";
 import Home from "./containers/Home";
 
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
       {
         path: "search",
         Component: SearchFilms,
+      },
+      {
+        path: "film/:id",
+        Component: Film,
       },
     ],
   },

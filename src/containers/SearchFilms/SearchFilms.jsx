@@ -24,7 +24,8 @@ const SearchFilms = () => {
 
   return (
     <div>
-      {value}
+      <h1>Поиск по фильмам</h1>
+
       <input type="text" onChange={onChange} value={value} />
 
       <div className={styles.wrapper}>

@@ -11,3 +11,7 @@
   color: #000;
   text-decoration: none;
 }
+.linkActive {
+  background-color: #171717;
+  color: #d0d0d0;
+}

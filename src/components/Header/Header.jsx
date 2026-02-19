@@ -1,19 +1,31 @@
-import { Link } from "react-router";
+import { NavLink } from "react-router";
+import cn from "classnames";
 
 import styles from "./styles.module.css";
 
 const Header = () => {
+  const setActiveClass = (statuses) => {
+    if (statuses.isActive) {
+      return cn(styles.link, styles.linkActive);
+    } else {
+      return styles.link;
+    }
+  };
+
   return (
     <div className={styles.wrapper}>
-      <Link className={styles.link} to="/">
+      {/* <h1 className={styles.link}>Hello</h1> */}
+      {/* <h1 className={cn(styles.link, styles.linkActive)}>Hello</h1> */}
+
+      <NavLink className={setActiveClass} to="/">
         Домашняя
-      </Link>
-      <Link className={styles.link} to="/films">
+      </NavLink>
+      <NavLink className={setActiveClass} to="/films">
         Список фильмов
-      </Link>
-      <Link className={styles.link} to="/search">
+      </NavLink>
+      <NavLink className={setActiveClass} to="/search">
         Поиск
-      </Link>
+      </NavLink>
     </div>
   );
 };

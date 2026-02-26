@@ -5,6 +5,7 @@ import FilmsList from "./containers/FilmsList";
 import Film from "./containers/Film";
 import SearchFilms from "./containers/SearchFilms";
 import Home from "./containers/Home";
+import Favorites from "./containers/Favorites";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "film/:id",
         Component: Film,
+      },
+      {
+        path: "favorites",
+        Component: Favorites,
       },
     ],
   },

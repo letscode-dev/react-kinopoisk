@@ -26,6 +26,10 @@ const Header = () => {
       <NavLink className={setActiveClass} to="/search">
         Поиск
       </NavLink>
+
+      <NavLink className={setActiveClass} to="/favorites">
+        Избранное
+      </NavLink>
     </div>
   );
 };

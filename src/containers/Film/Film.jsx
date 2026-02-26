@@ -5,8 +5,18 @@ import { getList as apiGetListFilm } from "../../api/actions/films";
 import styles from "./styles.module.css";
 import { useNavigate, useParams } from "react-router";
 
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from "../../store/favoritesReducer";
+import { useDispatch, useSelector } from "react-redux";
+
 const Film = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
+  const [isFavorites, setIsFavorites] = useState(false);
+
+  const favorites = useSelector((state) => state.favorites);
+  const dispatch = useDispatch();
 
   const params = useParams();
   const navigate = useNavigate();
@@ -23,6 +33,24 @@ const Film = () => {
     navigate(-1);
   };
 
+  useEffect(() => {
+    const favoritesFilm = favorites.filter((el) => el.id === data?.kinopoiskId);
+    setIsFavorites(Boolean(favoritesFilm.length));
+  }, [data.kinopoiskId, favorites]);
+
+  const onFavoritesAddClick = () => {
+    dispatch(
+      addToFavorites({
+        id: data.kinopoiskId,
+        name: data.nameRu,
+        poster: data.posterUrl,
+      }),
+    );
+  };
+  const onFavoritesRemoveClick = () => {
+    dispatch(removeFromFavorites(data.kinopoiskId));
+  };
+
   return (
     <div className={styles.wrapper}>
       {data && (
@@ -37,6 +65,14 @@ const Film = () => {
             Ссылка на Кинопоиск
           </a>
           <button onClick={onClose}>Назад</button>
+
+          {isFavorites ? (
+            <button onClick={onFavoritesRemoveClick}>
+              Удалить из избранного
+            </button>
+          ) : (
+            <button onClick={onFavoritesAddClick}>Добавить в избранное</button>
+          )}
         </div>
       )}
     </div>

@@ -23,10 +23,6 @@ const Film = () => {
   const params = useParams();
   const navigate = useNavigate();
 
-  // FIXME: Вместо состояния и эффекта — просто вычисление
-  // .some() — возвращает true или false, как только найдёт первый подходящий элемент (дальше массив не перебирает).
-  // const isFavorites = favorites.some((el) => el.id === data?.kinopoiskId);
-
   useEffect(() => {
     (async () => {
       apiGetListFilm({});
@@ -75,10 +71,12 @@ const Film = () => {
 
           {isFavorites ? (
             <button onClick={onFavoritesRemoveClick}>
-              Удалить из избранного
+              ❌ Удалить из избранного
             </button>
           ) : (
-            <button onClick={onFavoritesAddClick}>Добавить в избранное</button>
+            <button onClick={onFavoritesAddClick}>
+              ✅ Добавить в избранное
+            </button>
           )}
         </div>
       )}

@@ -15,7 +15,7 @@ const Film = () => {
   const [data, setData] = useState([]);
 
   // TODO:
-  // const [isFavorites, setIsFavorites] = useState(false);
+  const [isFavorites, setIsFavorites] = useState(false);
 
   const favorites = useSelector((state) => state.favorites);
   const dispatch = useDispatch();
@@ -25,8 +25,7 @@ const Film = () => {
 
   // FIXME: Вместо состояния и эффекта — просто вычисление
   // .some() — возвращает true или false, как только найдёт первый подходящий элемент (дальше массив не перебирает).
-  // .filter() — возвращает массив всех подходящих элементов.
-  const isFavorites = favorites.some((el) => el.id === data?.kinopoiskId);
+  // const isFavorites = favorites.some((el) => el.id === data?.kinopoiskId);
 
   useEffect(() => {
     (async () => {
@@ -41,10 +40,10 @@ const Film = () => {
   };
 
   // TODO:
-  // useEffect(() => {
-  //   const favoritesFilm = favorites.filter((el) => el.id === data?.kinopoiskId);
-  //   setIsFavorites(Boolean(favoritesFilm.length));
-  // }, [data.kinopoiskId, favorites]);
+  useEffect(() => {
+    const favoritesFilm = favorites.filter((el) => el.id === data?.kinopoiskId);
+    setIsFavorites(Boolean(favoritesFilm.length));
+  }, [data.kinopoiskId, favorites]);
 
   const onFavoritesAddClick = () => {
     dispatch(

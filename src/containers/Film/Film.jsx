@@ -30,7 +30,7 @@ const ButtonsElement = (props) => {
 
   const onClose = () => {
     navigate(-1)
-    setData([])
+    setData(null)
   }
 
   const onFavoritesAddClick = () => {
@@ -88,14 +88,15 @@ const ButtonsElement = (props) => {
   )
 }
 
-// FIXME: data должна быть {}
 const Film = () => {
-  const [data, setData] = useState([])
-  const [isFavorites, setIsFavorites] = useState(false)
+  const [data, setData] = useState(null)
 
   const params = useParams()
 
   const favorites = useSelector((state) => state.favorites)
+
+  // .some() — возвращает true или false, как только найдёт первый подходящий элемент (дальше массив не перебирает)
+  const isFavorites = favorites.some((el) => el.id === data?.kinopoiskId)
 
   useEffect(() => {
     ;(async () => {
@@ -104,21 +105,12 @@ const Film = () => {
     })()
   }, [params.id])
 
-  useEffect(() => {
-    const favoritesFilm = favorites.filter((el) => el.id === data.kinopoiskId)
-    setIsFavorites(!!favoritesFilm.length)
-  }, [data.kinopoiskId, favorites])
-
-  if (!data && data.length == 0) {
+  if (!data) {
     return (
       <div className="section">
-        <div>Нет данные о фильме</div>
+        <div>Загрузка данные о фильме</div>
       </div>
     )
-  }
-
-  if (data.length === 0) {
-    return null
   }
 
   return (

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { search as apiSearchFilms } from "../../api/actions/films";
+import TextField from "@mui/material/TextField";
 
 import styles from "./styles.module.css";
 
@@ -26,7 +27,15 @@ const SearchFilms = () => {
     <div>
       <h1>Поиск по фильмам</h1>
 
-      <input type="text" onChange={onChange} value={value} />
+      <TextField
+        label="Введите название фильма"
+        variant="outlined"
+        size="small"
+        onChange={onChange}
+        value={value}
+        className={styles.input}
+      />
+      {/* <input type="text" onChange={onChange} value={value} /> */}
 
       <div className={styles.wrapper}>
         {data.length !== 0 &&

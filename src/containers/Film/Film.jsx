@@ -13,13 +13,20 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Film = () => {
   const [data, setData] = useState([]);
-  const [isFavorites, setIsFavorites] = useState(false);
+
+  // TODO:
+  // const [isFavorites, setIsFavorites] = useState(false);
 
   const favorites = useSelector((state) => state.favorites);
   const dispatch = useDispatch();
 
   const params = useParams();
   const navigate = useNavigate();
+
+  // FIXME: Вместо состояния и эффекта — просто вычисление
+  // .some() — возвращает true или false, как только найдёт первый подходящий элемент (дальше массив не перебирает).
+  // .filter() — возвращает массив всех подходящих элементов.
+  const isFavorites = favorites.some((el) => el.id === data?.kinopoiskId);
 
   useEffect(() => {
     (async () => {
@@ -33,10 +40,11 @@ const Film = () => {
     navigate(-1);
   };
 
-  useEffect(() => {
-    const favoritesFilm = favorites.filter((el) => el.id === data?.kinopoiskId);
-    setIsFavorites(Boolean(favoritesFilm.length));
-  }, [data.kinopoiskId, favorites]);
+  // TODO:
+  // useEffect(() => {
+  //   const favoritesFilm = favorites.filter((el) => el.id === data?.kinopoiskId);
+  //   setIsFavorites(Boolean(favoritesFilm.length));
+  // }, [data.kinopoiskId, favorites]);
 
   const onFavoritesAddClick = () => {
     dispatch(

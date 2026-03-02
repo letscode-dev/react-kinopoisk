@@ -1,9 +1,13 @@
 import { NavLink } from "react-router";
 import cn from "classnames";
 
+import { useSelector } from "react-redux";
+
 import styles from "./styles.module.css";
 
 const Header = () => {
+  const favorites = useSelector((state) => state.favorites);
+
   const setActiveClass = (statuses) => {
     if (statuses.isActive) {
       return cn(styles.link, styles.linkActive);
@@ -28,7 +32,7 @@ const Header = () => {
       </NavLink>
 
       <NavLink className={setActiveClass} to="/favorites">
-        Избранное
+        Избранное - {favorites.length}
       </NavLink>
     </div>
   );

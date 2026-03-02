@@ -10,7 +10,8 @@ export const favoritesSlice = createSlice({
       state.push(action.payload);
     },
     removeFromFavorites: (state, action) => {
-      //
+      const data = state.filter((el) => el.id !== action.payload);
+      return [...data];
     },
   },
 });

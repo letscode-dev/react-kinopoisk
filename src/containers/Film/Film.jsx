@@ -14,14 +14,13 @@ import { useDispatch, useSelector } from "react-redux";
 const Film = () => {
   const [data, setData] = useState([]);
 
-  // TODO:
-  const [isFavorites, setIsFavorites] = useState(false);
-
   const favorites = useSelector((state) => state.favorites);
   const dispatch = useDispatch();
 
   const params = useParams();
   const navigate = useNavigate();
+
+  const isFavorites = favorites.some((el) => el.id === data?.kinopoiskId);
 
   useEffect(() => {
     (async () => {
@@ -34,12 +33,6 @@ const Film = () => {
   const onClose = () => {
     navigate(-1);
   };
-
-  // TODO:
-  useEffect(() => {
-    const favoritesFilm = favorites.filter((el) => el.id === data?.kinopoiskId);
-    setIsFavorites(Boolean(favoritesFilm.length));
-  }, [data.kinopoiskId, favorites]);
 
   const onFavoritesAddClick = () => {
     dispatch(

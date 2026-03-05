@@ -1,40 +1,67 @@
-import { NavLink } from 'react-router'
-import cn from 'classnames'
-
+import { NavLink, useLocation } from 'react-router'
 import { useSelector } from 'react-redux'
+import AppBar from '@mui/material/AppBar'
+import Toolbar from '@mui/material/Toolbar'
+import Button from '@mui/material/Button'
+import Badge from '@mui/material/Badge'
 
-import styles from './styles.module.css'
+const navItems = [
+  { to: '/', label: 'Домашняя' },
+  { to: '/films', label: 'Список фильмов' },
+  { to: '/search', label: 'Поиск' },
+]
 
 const Header = () => {
   const favorites = useSelector((state) => state.favorites)
-
-  const setActiveClass = (statuses) => {
-    if (statuses.isActive) {
-      return cn(styles.link, styles.linkActive)
-    } else {
-      return styles.link
-    }
-  }
+  const location = useLocation()
 
   return (
-    <div className={styles.wrapper}>
-      {/* <h1 className={styles.link}>Hello</h1> */}
-      {/* <h1 className={cn(styles.link, styles.linkActive)}>Hello</h1> */}
-
-      <NavLink className={setActiveClass} to="/">
-        Домашняя
-      </NavLink>
-      <NavLink className={setActiveClass} to="/films">
-        Список фильмов
-      </NavLink>
-      <NavLink className={setActiveClass} to="/search">
-        Поиск
-      </NavLink>
-
-      <NavLink className={setActiveClass} to="/favorites">
-        Избранное - {favorites.length}
-      </NavLink>
-    </div>
+    <AppBar position="static">
+      <Toolbar sx={{ gap: 1, flexWrap: 'wrap' }}>
+        {navItems.map(({ to, label }) => (
+          <Button
+            key={to}
+            color="inherit"
+            component={NavLink}
+            to={to}
+            variant={location.pathname === to ? 'contained' : 'text'}
+            sx={{
+              ...(location.pathname === to && {
+                bgcolor: 'rgba(255,255,255,0.2)',
+                '&:hover': { bgcolor: 'rgba(255,255,255,0.3)' },
+              }),
+            }}
+          >
+            {label}
+          </Button>
+        ))}
+        <Badge
+          badgeContent={favorites.length}
+          showZero
+          sx={{
+            '& .MuiBadge-badge': {
+              backgroundColor: (theme) => theme.palette.primary.main,
+              color: (theme) => theme.palette.primary.contrastText,
+            },
+          }}
+        >
+          <Button
+            color="inherit"
+            component={NavLink}
+            to="/favorites"
+            variant={location.pathname === '/favorites' ? 'contained' : 'text'}
+            sx={{
+              ...(location.pathname === '/favorites' && {
+                bgcolor: 'rgba(255,255,255,0.2)',
+                '&:hover': { bgcolor: 'rgba(255,255,255,0.3)' },
+              }),
+            }}
+          >
+            Избранное
+          </Button>
+        </Badge>
+      </Toolbar>
+    </AppBar>
   )
 }
 

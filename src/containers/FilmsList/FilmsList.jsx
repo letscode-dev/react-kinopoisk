@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react'
 import { getList as apiGetListFilm } from '../../api/actions/films'
-
-import styles from './styles.module.css'
 import { useNavigate } from 'react-router'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import CardActions from '@mui/material/CardActions'
+import Button from '@mui/material/Button'
+import Grid from '@mui/material/Grid'
 
 const params = {
   type: 'FILM',
@@ -27,21 +33,36 @@ const FilmsList = () => {
   }
 
   return (
-    <div>
-      <h1>Список фильмов</h1>
-      <div className={styles.wrapper}>
+    <Box sx={{ p: 3 }}>
+      <Typography variant="h4" component="h1" gutterBottom sx={{ mb: 3 }}>
+        Список фильмов
+      </Typography>
+      <Grid container spacing={3}>
         {data.length !== 0 &&
           data.map((item) => (
-            <div key={item.kinopoiskId} className={styles.item}>
-              <img className={styles.img} src={item.posterUrlPreview} alt="" />
-              <div className={styles.name}>{item.nameRu}</div>
-              <button onClick={() => onClick(item.kinopoiskId)}>
-                Открыть фильм
-              </button>
-            </div>
+            <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={item.kinopoiskId}>
+              <Card variant="outlined" sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                <CardMedia
+                  component="img"
+                  image={item.posterUrlPreview}
+                  alt={item.nameRu}
+                  sx={{ height: 300, objectFit: 'cover' }}
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography variant="subtitle1" component="div" fontWeight="medium">
+                    {item.nameRu}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small" variant="contained" onClick={() => onClick(item.kinopoiskId)}>
+                    Открыть фильм
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
           ))}
-      </div>
-    </div>
+      </Grid>
+    </Box>
   )
 }
 

@@ -1,8 +1,12 @@
 import { useState, useEffect } from 'react'
 import { search as apiSearchFilms } from '../../api/actions/films'
 import TextField from '@mui/material/TextField'
-
-import styles from './styles.module.css'
+import Box from '@mui/material/Box'
+import Typography from '@mui/material/Typography'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import Grid from '@mui/material/Grid'
 
 const SearchFilms = () => {
   const [value, setValue] = useState('')
@@ -24,8 +28,10 @@ const SearchFilms = () => {
   }
 
   return (
-    <div>
-      <h1>Поиск по фильмам</h1>
+    <Box sx={{ p: 3 }}>
+      <Typography variant="h4" component="h1" gutterBottom sx={{ mb: 3 }}>
+        Поиск по фильмам
+      </Typography>
 
       <TextField
         label="Введите название фильма"
@@ -33,20 +39,30 @@ const SearchFilms = () => {
         size="small"
         onChange={onChange}
         value={value}
-        className={styles.input}
+        sx={{ mb: 3, minWidth: 300 }}
       />
-      {/* <input type="text" onChange={onChange} value={value} /> */}
 
-      <div className={styles.wrapper}>
+      <Grid container spacing={3}>
         {data.length !== 0 &&
           data.map((item) => (
-            <div key={item.filmId} className={styles.item}>
-              <img className={styles.img} src={item.posterUrlPreview} alt="" />
-              <div className={styles.name}>{item.nameRu}</div>
-            </div>
+            <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={item.filmId}>
+              <Card variant="outlined" sx={{ height: '100%' }}>
+                <CardMedia
+                  component="img"
+                  image={item.posterUrlPreview}
+                  alt={item.nameRu}
+                  sx={{ height: 300, objectFit: 'cover' }}
+                />
+                <CardContent>
+                  <Typography variant="subtitle1" component="div" fontWeight="medium">
+                    {item.nameRu}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
           ))}
-      </div>
-    </div>
+      </Grid>
+    </Box>
   )
 }
 

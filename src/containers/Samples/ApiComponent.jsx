@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
-import { getList as getListJsonplaceholder } from "../../api/actions/jsonplaceholder";
+import { useState, useEffect } from 'react'
+import { getList as getListJsonplaceholder } from '../../api/actions/jsonplaceholder'
 
 const ApiComponent = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([])
 
   useEffect(() => {
-    (async () => {
-      const response = await getListJsonplaceholder();
-      setData(response);
-    })();
-  }, []);
+    ;(async () => {
+      const response = await getListJsonplaceholder()
+      setData(response)
+    })()
+  }, [])
 
   return (
     <div>
@@ -24,7 +24,7 @@ const ApiComponent = () => {
           ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
-export default ApiComponent;
+export default ApiComponent

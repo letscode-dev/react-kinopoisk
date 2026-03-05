@@ -1,7 +1,7 @@
-import styles from "./styles.module.css";
+import styles from './styles.module.css'
 
 const UiButton = (props) => {
-  const { text, onClick, disabled, active } = props;
+  const { text, onClick, disabled, active } = props
   return (
     <button
       onClick={onClick}
@@ -10,7 +10,7 @@ const UiButton = (props) => {
     >
       {text}
     </button>
-  );
-};
+  )
+}
 
-export default UiButton;
+export default UiButton

@@ -1,20 +1,20 @@
-import { NavLink } from "react-router";
-import cn from "classnames";
+import { NavLink } from 'react-router'
+import cn from 'classnames'
 
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux'
 
-import styles from "./styles.module.css";
+import styles from './styles.module.css'
 
 const Header = () => {
-  const favorites = useSelector((state) => state.favorites);
+  const favorites = useSelector((state) => state.favorites)
 
   const setActiveClass = (statuses) => {
     if (statuses.isActive) {
-      return cn(styles.link, styles.linkActive);
+      return cn(styles.link, styles.linkActive)
     } else {
-      return styles.link;
+      return styles.link
     }
-  };
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -35,7 +35,7 @@ const Header = () => {
         Избранное - {favorites.length}
       </NavLink>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

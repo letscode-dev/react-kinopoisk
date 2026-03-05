@@ -1,4 +1,4 @@
-import Button from "@mui/material/Button";
+import Button from '@mui/material/Button'
 
 const Home = () => {
   return (
@@ -6,7 +6,7 @@ const Home = () => {
       <h1>Домашняя страница</h1>
       <Button variant="contained">Text</Button>
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

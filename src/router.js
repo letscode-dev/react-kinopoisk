@@ -1,15 +1,15 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter } from 'react-router'
 
-import App from "./containers/App";
-import FilmsList from "./containers/FilmsList";
-import Film from "./containers/Film";
-import SearchFilms from "./containers/SearchFilms";
-import Home from "./containers/Home";
-import Favorites from "./containers/Favorites";
+import App from './containers/App'
+import FilmsList from './containers/FilmsList'
+import Film from './containers/Film'
+import SearchFilms from './containers/SearchFilms'
+import Home from './containers/Home'
+import Favorites from './containers/Favorites'
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     Component: App,
     children: [
       {
@@ -18,21 +18,21 @@ export const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "films",
+        path: 'films',
         Component: FilmsList,
       },
       {
-        path: "search",
+        path: 'search',
         Component: SearchFilms,
       },
       {
-        path: "film/:id",
+        path: 'film/:id',
         Component: Film,
       },
       {
-        path: "favorites",
+        path: 'favorites',
         Component: Favorites,
       },
     ],
   },
-]);
+])

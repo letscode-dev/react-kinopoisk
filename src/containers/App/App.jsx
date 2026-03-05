@@ -1,5 +1,5 @@
-import { Outlet } from "react-router";
-import Header from "../../components/Header";
+import { Outlet } from 'react-router'
+import Header from '../../components/Header'
 // import ReduxSample from "../Samples/ReduxSample";
 
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
       {/* <ReduxSample /> */}
       <Outlet />
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App

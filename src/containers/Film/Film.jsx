@@ -1,38 +1,38 @@
-import { useState, useEffect } from "react";
-import { get as apiGetFilm } from "../../api/actions/films";
-import { getList as apiGetListFilm } from "../../api/actions/films";
+import { useState, useEffect } from 'react'
+import { get as apiGetFilm } from '../../api/actions/films'
+import { getList as apiGetListFilm } from '../../api/actions/films'
 
-import styles from "./styles.module.css";
-import { useNavigate, useParams } from "react-router";
+import styles from './styles.module.css'
+import { useNavigate, useParams } from 'react-router'
 
 import {
   addToFavorites,
   removeFromFavorites,
-} from "../../store/favoritesReducer";
-import { useDispatch, useSelector } from "react-redux";
+} from '../../store/favoritesReducer'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Film = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([])
 
-  const favorites = useSelector((state) => state.favorites);
-  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favorites)
+  const dispatch = useDispatch()
 
-  const params = useParams();
-  const navigate = useNavigate();
+  const params = useParams()
+  const navigate = useNavigate()
 
-  const isFavorites = favorites.some((el) => el.id === data?.kinopoiskId);
+  const isFavorites = favorites.some((el) => el.id === data?.kinopoiskId)
 
   useEffect(() => {
-    (async () => {
-      apiGetListFilm({});
-      const response = await apiGetFilm(params.id);
-      setData(response);
-    })();
-  }, [params.id]);
+    ;(async () => {
+      apiGetListFilm({})
+      const response = await apiGetFilm(params.id)
+      setData(response)
+    })()
+  }, [params.id])
 
   const onClose = () => {
-    navigate(-1);
-  };
+    navigate(-1)
+  }
 
   const onFavoritesAddClick = () => {
     dispatch(
@@ -41,11 +41,11 @@ const Film = () => {
         name: data.nameRu,
         poster: data.posterUrl,
       }),
-    );
-  };
+    )
+  }
   const onFavoritesRemoveClick = () => {
-    dispatch(removeFromFavorites(data.kinopoiskId));
-  };
+    dispatch(removeFromFavorites(data.kinopoiskId))
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -74,7 +74,7 @@ const Film = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Film;
+export default Film

@@ -1,15 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
-import {
-  increment,
-  decrement,
-  incrementByAmout,
-} from "../../store/counterSlce";
+import { useDispatch, useSelector } from 'react-redux'
+import { increment, decrement, incrementByAmout } from '../../store/counterSlce'
 
 const ReduxSample = () => {
-  const count = useSelector((state) => state.counter.value);
-  const dispatch = useDispatch();
+  const count = useSelector((state) => state.counter.value)
+  const dispatch = useDispatch()
 
-  console.log("count", count);
+  console.log('count', count)
 
   return (
     <div>
@@ -19,7 +15,7 @@ const ReduxSample = () => {
 
       <span>{count}</span>
     </div>
-  );
-};
+  )
+}
 
-export default ReduxSample;
+export default ReduxSample

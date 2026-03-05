@@ -1,27 +1,27 @@
-import { useState, useEffect } from "react";
-import { search as apiSearchFilms } from "../../api/actions/films";
-import TextField from "@mui/material/TextField";
+import { useState, useEffect } from 'react'
+import { search as apiSearchFilms } from '../../api/actions/films'
+import TextField from '@mui/material/TextField'
 
-import styles from "./styles.module.css";
+import styles from './styles.module.css'
 
 const SearchFilms = () => {
-  const [value, setValue] = useState("");
-  const [data, setData] = useState([]);
+  const [value, setValue] = useState('')
+  const [data, setData] = useState([])
 
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       const params = {
         keyword: value,
-      };
+      }
 
-      const response = await apiSearchFilms(params);
-      setData(response);
-    })();
-  }, [value]);
+      const response = await apiSearchFilms(params)
+      setData(response)
+    })()
+  }, [value])
 
   const onChange = (e) => {
-    setValue(e.target.value);
-  };
+    setValue(e.target.value)
+  }
 
   return (
     <div>
@@ -47,7 +47,7 @@ const SearchFilms = () => {
           ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SearchFilms;
+export default SearchFilms

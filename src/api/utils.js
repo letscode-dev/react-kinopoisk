@@ -7,27 +7,27 @@
 
 export const getApiResource = async (url, init = {}) => {
   try {
-    const response = await fetch(url, init);
+    const response = await fetch(url, init)
 
     if (!response.ok) {
-      console.error("Ошибка: ", response.status);
+      console.error('Ошибка: ', response.status)
       // throw new Error('Error')
-      return false;
+      return false
     }
 
-    const data = await response.json();
+    const data = await response.json()
 
-    return data;
+    return data
   } catch (error) {
-    console.error("Ошибка:", error.message);
-    return false;
+    console.error('Ошибка:', error.message)
+    return false
   }
-};
+}
 
 // UiComponent -> Action -> Util Fetch
 
 export const getQueryParams = (params = {}) => {
-  const queryParams = new URLSearchParams(params).toString();
+  const queryParams = new URLSearchParams(params).toString()
 
-  return queryParams;
-};
+  return queryParams
+}

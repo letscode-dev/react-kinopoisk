@@ -1,9 +1,9 @@
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux'
 
 const Favorites = () => {
-  const favorites = useSelector((state) => state.favorites);
+  const favorites = useSelector((state) => state.favorites)
 
-  console.log("favorites", favorites);
+  console.log('favorites', favorites)
 
   return (
     <div>
@@ -24,7 +24,7 @@ const Favorites = () => {
         <h4>В избранном нет фильмов</h4>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Favorites;
+export default Favorites

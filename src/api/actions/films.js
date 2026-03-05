@@ -15,7 +15,7 @@ export const get = async (id) => {
 };
 
 export const getList = async (params = {}) => {
-  const queryParams = getQueryParams(params)
+  const queryParams = getQueryParams(params);
 
   const init = {
     method: "GET",
@@ -27,10 +27,10 @@ export const getList = async (params = {}) => {
   );
 
   return data.items;
-}
+};
 
 export const search = async (params = {}) => {
-  const queryParams = getQueryParams(params)
+  const queryParams = getQueryParams(params);
 
   const init = {
     method: "GET",
@@ -42,4 +42,4 @@ export const search = async (params = {}) => {
   );
 
   return data.films;
-}
+};

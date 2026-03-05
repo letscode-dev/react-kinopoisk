@@ -27,7 +27,7 @@ export const getApiResource = async (url, init = {}) => {
 // UiComponent -> Action -> Util Fetch
 
 export const getQueryParams = (params = {}) => {
-  const queryParams = new URLSearchParams(params).toString()
+  const queryParams = new URLSearchParams(params).toString();
 
-  return queryParams
-}
+  return queryParams;
+};

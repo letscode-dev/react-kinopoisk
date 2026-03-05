@@ -13,7 +13,11 @@ const fruits = [
   { key: 7, name: "Лимон", emoji: "🍋" },
   { key: 8, name: "Персик", emoji: "🍑" },
   { key: 9, name: "Груша", emoji: "🍐" },
-  { key: 10, name: "Вишня", emoji: "🍒" },
+  {
+    key: 10,
+    name: "Вишня",
+    emoji: "🍒",
+  },
 ];
 
 const Description = (props) => {
